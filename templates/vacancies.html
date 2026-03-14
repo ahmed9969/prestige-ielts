@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacancies - Prestige IELTS Academy</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <a href="/"><img src="/static/logo.png" alt="Prestige IELTS Academy" class="logo"></a>
+        <div class="nav-links">
+            <a href="/">{% if lang == 'uz' %}Bosh sahifa{% elif lang == 'ru' %}Главная{% else %}Home{% endif %}</a>
+            <a href="/#courses">{% if lang == 'uz' %}Kurslar{% elif lang == 'ru' %}Курсы{% else %}Courses{% endif %}</a>
+            <a href="/#contact">{% if lang == 'uz' %}Aloqa{% elif lang == 'ru' %}Контакты{% else %}Contact{% endif %}</a>
+            <a href="/vacancies">{% if lang == 'uz' %}Vakansiyalar{% elif lang == 'ru' %}Вакансии{% else %}Vacancies{% endif %}</a>
+        </div>
+        <div class="lang-switcher">
+            <a href="?lang=en">🇬🇧 EN</a>
+            <a href="?lang=uz">🇺🇿 UZ</a>
+            <a href="?lang=ru">🇷🇺 RU</a>
+        </div>
+    </nav>
+
+    <!-- VACANCIES HERO -->
+    <section class="hero">
+        <h1>
+            {% if lang == 'uz' %}Vakansiyalar{% elif lang == 'ru' %}Вакансии{% else %}Vacancies{% endif %}
+        </h1>
+        <p>
+            {% if lang == 'uz' %}Bizning jamoamizga qo'shiling{% elif lang == 'ru' %}Присоединяйтесь к нашей команде{% else %}Join our team at Prestige IELTS Academy{% endif %}
+        </p>
+    </section>
+
+    <!-- VACANCIES LIST -->
+    <section id="vacancies-list">
+        <div class="vacancies-container">
+
+            <div class="vacancy-card">
+                <div class="vacancy-header">
+                    <h3>IELTS Teacher</h3>
+                    <span class="vacancy-badge">{% if lang == 'uz' %}To'liq kun{% elif lang == 'ru' %}Полный день{% else %}Full Time{% endif %}</span>
+                </div>
+                <p>{% if lang == 'uz' %}IELTS General va Academic kurslarini o'qitish. Kamida 2 yillik tajriba talab etiladi.{% elif lang == 'ru' %}Преподавание курсов IELTS General и Academic. Требуется минимум 2 года опыта.{% else %}Teaching IELTS General and Academic courses. Minimum 2 years experience required.{% endif %}</p>
+                <div class="vacancy-requirements">
+                    <p>✅ IELTS 8.0+</p>
+                    <p>✅ {% if lang == 'uz' %}O'qitish tajribasi{% elif lang == 'ru' %}Опыт преподавания{% else %}Teaching experience{% endif %}</p>
+                    <p>✅ {% if lang == 'uz' %}Cambridge sertifikati{% elif lang == 'ru' %}Сертификат Cambridge{% else %}Cambridge certificate{% endif %}</p>
+                </div>
+                <a href="https://t.me/prestige_ieltsacademy_bot" target="_blank" class="btn vacancy-btn">
+                    {% if lang == 'uz' %}Ariza yuborish{% elif lang == 'ru' %}Подать заявку{% else %}Apply Now{% endif %}
+                </a>
+            </div>
+
+            <div class="vacancy-card">
+                <div class="vacancy-header">
+                    <h3>Speaking Coach</h3>
+                    <span class="vacancy-badge">{% if lang == 'uz' %}To'liq kun{% elif lang == 'ru' %}Полный день{% else %}Full Time{% endif %}</span>
+                </div>
+                <p>{% if lang == 'uz' %}Talabalarning og'zaki nutqini rivojlantirish. Native speaker yoki C2 darajasi talab etiladi.{% elif lang == 'ru' %}Развитие разговорных навыков студентов. Требуется носитель языка или уровень C2.{% else %}Develop students' speaking skills. Native speaker or C2 level required.{% endif %}</p>
+                <div class="vacancy-requirements">
+                    <p>✅ {% if lang == 'uz' %}Native speaker yoki C2{% elif lang == 'ru' %}Носитель языка или C2{% else %}Native speaker or C2{% endif %}</p>
+                    <p>✅ IELTS Speaking 8.5+</p>
+                    <p>✅ {% if lang == 'uz' %}Kommunikatsiya ko'nikmalari{% elif lang == 'ru' %}Коммуникативные навыки{% else %}Communication skills{% endif %}</p>
+                </div>
+                <a href="https://t.me/prestige_ieltsacademy_bot" target="_blank" class="btn vacancy-btn">
+                    {% if lang == 'uz' %}Ariza yuborish{% elif lang == 'ru' %}Подать заявку{% else %}Apply Now{% endif %}
+                </a>
+            </div>
+
+            <div class="vacancy-card">
+                <div class="vacancy-header">
+                    <h3>{% if lang == 'uz' %}Administrator{% elif lang == 'ru' %}Администратор{% else %}Admin Staff{% endif %}</h3>
+                    <span class="vacancy-badge">{% if lang == 'uz' %}To'liq kun{% elif lang == 'ru' %}Полный день{% else %}Full Time{% endif %}</span>
+                </div>
+                <p>{% if lang == 'uz' %}Talabalar ro'yxatini boshqarish, to'lovlarni kuzatish va umumiy ma'muriy vazifalar.{% elif lang == 'ru' %}Управление списками студентов, отслеживание платежей и общие административные задачи.{% else %}Managing student registrations, tracking payments and general administrative duties.{% endif %}</p>
+                <div class="vacancy-requirements">
+                    <p>✅ {% if lang == 'uz' %}Kompyuter savodxonligi{% elif lang == 'ru' %}Компьютерная грамотность{% else %}Computer literacy{% endif %}</p>
+                    <p>✅ {% if lang == 'uz' %}O'zbek va rus tili{% elif lang == 'ru' %}Узбекский и русский язык{% else %}Uzbek and Russian language{% endif %}</p>
+                    <p>✅ {% if lang == 'uz' %}Tashkilotchilik ko'nikmalari{% elif lang == 'ru' %}Организаторские навыки{% else %}Organisational skills{% endif %}</p>
+                </div>
+                <a href="https://t.me/prestige_ieltsacademy_bot" target="_blank" class="btn vacancy-btn">
+                    {% if lang == 'uz' %}Ariza yuborish{% elif lang == 'ru' %}Подать заявку{% else %}Apply Now{% endif %}
+                </a>
+            </div>
+
+            <div class="vacancy-card">
+                <div class="vacancy-header">
+                    <h3>{% if lang == 'uz' %}Repetitor{% elif lang == 'ru' %}Репетитор{% else %}Private Tutor{% endif %}</h3>
+                    <span class="vacancy-badge vacancy-badge-part">{% if lang == 'uz' %}Yarim kun{% elif lang == 'ru' %}Частичная занятость{% else %}Part Time{% endif %}</span>
+                </div>
+                <p>{% if lang == 'uz' %}Alohida o'quvchilar bilan individual darslar o'tkazish. Moslashuvchan ish jadvali.{% elif lang == 'ru' %}Проведение индивидуальных занятий со студентами. Гибкий график работы.{% else %}Conducting individual lessons with students. Flexible working schedule.{% endif %}</p>
+                <div class="vacancy-requirements">
+                    <p>✅ IELTS 7.5+</p>
+                    <p>✅ {% if lang == 'uz' %}O'qitish ishtiyoqi{% elif lang == 'ru' %}Желание обучать{% else %}Passion for teaching{% endif %}</p>
+                    <p>✅ {% if lang == 'uz' %}Moslashuvchanlik{% elif lang == 'ru' %}Гибкость{% else %}Flexibility{% endif %}</p>
+                </div>
+                <a href="https://t.me/prestige_ieltsacademy_bot" target="_blank" class="btn vacancy-btn">
+                    {% if lang == 'uz' %}Ariza yuborish{% elif lang == 'ru' %}Подать заявку{% else %}Apply Now{% endif %}
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Prestige IELTS Academy</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestige IELTS Academy</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <img src="/static/logo.png" alt="Prestige IELTS Academy" class="logo">
+        <div class="nav-links">
+            <a href="#courses">{% if lang == 'uz' %}Kurslar{% elif lang == 'ru' %}Курсы{% else %}Courses{% endif %}</a>
+            <a href="#director">{% if lang == 'uz' %}Direktor{% elif lang == 'ru' %}Директор{% else %}Director{% endif %}</a>
+            <a href="#staff">{% if lang == 'uz' %}O'qituvchilar{% elif lang == 'ru' %}Преподаватели{% else %}Teachers{% endif %}</a>
+            <a href="#results">{% if lang == 'uz' %}Natijalar{% elif lang == 'ru' %}Результаты{% else %}Results{% endif %}</a>
+            <a href="#contact">{% if lang == 'uz' %}Aloqa{% elif lang == 'ru' %}Контакты{% else %}Contact{% endif %}</a>
+            <a href="/vacancies">{% if lang == 'uz' %}Vakansiyalar{% elif lang == 'ru' %}Вакансии{% else %}Vacancies{% endif %}</a>
+        </div>
+        <div class="lang-switcher">
+            <a href="?lang=en">🇬🇧 EN</a>
+            <a href="?lang=uz">🇺🇿 UZ</a>
+            <a href="?lang=ru">🇷🇺 RU</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>
+            {% if lang == 'uz' %}
+                Prestige IELTS Academy'ga Xush Kelibsiz
+            {% elif lang == 'ru' %}
+                Добро пожаловать в Prestige IELTS Academy
+            {% else %}
+                Welcome to Prestige IELTS Academy
+            {% endif %}
+        </h1>
+        <p>
+            {% if lang == 'uz' %}
+                2012 yildan buyon IELTS tayyorgarligi
+            {% elif lang == 'ru' %}
+                Подготовка к IELTS с 2012 года
+            {% else %}
+                Preparing students for IELTS since 2012
+            {% endif %}
+        </p>
+        <a href="#contact" class="btn">
+            {% if lang == 'uz' %}Ro'yxatdan o'tish{% elif lang == 'ru' %}Записаться{% else %}Enroll Now{% endif %}
+        </a>
+    </section>
+
+    <!-- STATS SECTION -->
+    <section id="stats">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h2 class="stat-number">2012</h2>
+                <p>{% if lang == 'uz' %}Tashkil etilgan yil{% elif lang == 'ru' %}Год основания{% else %}Year Founded{% endif %}</p>
+            </div>
+            <div class="stat-card">
+                <h2 class="stat-number">500+</h2>
+                <p>{% if lang == 'uz' %}Muvaffaqiyatli talabalar{% elif lang == 'ru' %}Успешных студентов{% else %}Successful Students{% endif %}</p>
+            </div>
+            <div class="stat-card">
+                <h2 class="stat-number">4</h2>
+                <p>{% if lang == 'uz' %}Malakali o'qituvchilar{% elif lang == 'ru' %}Квалифицированных преподавателей{% else %}Qualified Teachers{% endif %}</p>
+            </div>
+            <div class="stat-card">
+                <h2 class="stat-number">8.5</h2>
+                <p>{% if lang == 'uz' %}Eng yuqori ball{% elif lang == 'ru' %}Высший балл{% else %}Highest Band Score{% endif %}</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- COURSES SECTION -->
+    <section id="courses">
+        <h2>
+            {% if lang == 'uz' %}Kurslarimiz{% elif lang == 'ru' %}Наши курсы{% else %}Our Courses{% endif %}
+        </h2>
+        <div class="courses-grid">
+            <div class="course-card">
+                <h3>IELTS General</h3>
+                <p>{% if lang == 'uz' %}Umumiy IELTS imtihoniga tayyorgarlik{% elif lang == 'ru' %}Подготовка к общему IELTS{% else %}Preparation for General IELTS exam{% endif %}</p>
+            </div>
+            <div class="course-card">
+                <h3>IELTS Academic</h3>
+                <p>{% if lang == 'uz' %}Akademik IELTS imtihoniga tayyorgarlik{% elif lang == 'ru' %}Подготовка к академическому IELTS{% else %}Preparation for Academic IELTS exam{% endif %}</p>
+            </div>
+            <div class="course-card">
+                <h3>{% if lang == 'uz' %}Og'zaki nutq{% elif lang == 'ru' %}Разговорный{% else %}Speaking Classes{% endif %}</h3>
+                <p>{% if lang == 'uz' %}Ingliz tilida gaplashishni rivojlantirish{% elif lang == 'ru' %}Развитие разговорного английского{% else %}Improve your English speaking skills{% endif %}</p>
+            </div>
+            <div class="course-card">
+                <h3>Mock Tests</h3>
+                <p>{% if lang == 'uz' %}Haqiqiy imtihon sharoitida mashq{% elif lang == 'ru' %}Практика в условиях реального экзамена{% else %}Practice under real exam conditions{% endif %}</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIRECTOR SECTION -->
+    <section id="director">
+        <div class="director-container">
+            <img class="director-avatar" src="https://randomuser.me/api/portraits/men/75.jpg" alt="Director">
+            <div class="director-message">
+                <h2>{% if lang == 'uz' %}Direktor so'zi{% elif lang == 'ru' %}Слово директора{% else %}Director's Message{% endif %}</h2>
+                <p>
+                    {% if lang == 'uz' %}
+                        "Prestige IELTS Academy 2012 yildan beri o'quvchilarimizning muvaffaqiyati uchun fidokorona mehnat qilib kelmoqda. Bizning maqsadimiz — har bir talabaga sifatli ta'lim berish va ularni IELTS imtihonida yuqori ball olishga tayyorlash. Biz nafaqat til o'rgatamiz, balki kelajakka yo'l ochamiz."
+                    {% elif lang == 'ru' %}
+                        «Prestige IELTS Academy с 2012 года самоотверженно работает для достижения успеха наших студентов. Наша цель — дать каждому студенту качественное образование и подготовить их к высоким баллам на экзамене IELTS. Мы не просто учим языку — мы открываем путь в будущее.»
+                    {% else %}
+                        "Since 2012, Prestige IELTS Academy has been dedicated to the success of our students. Our goal is to provide quality education to every student and prepare them to achieve high scores on the IELTS exam. We do not just teach language — we open doors to the future."
+                    {% endif %}
+                </p>
+                <h3>Ahmad Karimov</h3>
+                <p class="director-title">{% if lang == 'uz' %}Direktor{% elif lang == 'ru' %}Директор{% else %}Director{% endif %}</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STAFF SECTION -->
+    <section id="staff">
+        <h2>
+            {% if lang == 'uz' %}Bizning o'qituvchilar{% elif lang == 'ru' %}Наши преподаватели{% else %}Our Teachers{% endif %}
+        </h2>
+        <div class="staff-grid">
+            <div class="staff-card">
+                <img class="staff-avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="James Wilson">
+                <h3>James Wilson</h3>
+                <p class="staff-role">IELTS General & Academic</p>
+                <p class="staff-desc">{% if lang == 'uz' %}10 yillik tajriba, 500+ muvaffaqiyatli talaba{% elif lang == 'ru' %}10 лет опыта, 500+ успешных студентов{% else %}10 years experience, 500+ successful students{% endif %}</p>
+            </div>
+            <div class="staff-card">
+                <img class="staff-avatar" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson">
+                <h3>Sarah Johnson</h3>
+                <p class="staff-role">Speaking & Writing</p>
+                <p class="staff-desc">{% if lang == 'uz' %}Cambridge sertifikatlangan o'qituvchi{% elif lang == 'ru' %}Сертифицированный преподаватель Cambridge{% else %}Cambridge certified teacher{% endif %}</p>
+            </div>
+            <div class="staff-card">
+                <img class="staff-avatar" src="https://randomuser.me/api/portraits/men/56.jpg" alt="Michael Brown">
+                <h3>Michael Brown</h3>
+                <p class="staff-role">Listening & Reading</p>
+                <p class="staff-desc">{% if lang == 'uz' %}IELTS 9.0 ball, 8 yillik tajriba{% elif lang == 'ru' %}IELTS 9.0 баллов, 8 лет опыта{% else %}IELTS 9.0 score, 8 years experience{% endif %}</p>
+            </div>
+            <div class="staff-card">
+                <img class="staff-avatar" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emily Davis">
+                <h3>Emily Davis</h3>
+                <p class="staff-role">Mock Tests & Academic</p>
+                <p class="staff-desc">{% if lang == 'uz' %}300+ talabani yuqori ball bilan tayyorlagan{% elif lang == 'ru' %}Подготовила 300+ студентов к высоким баллам{% else %}Prepared 300+ students for high scores{% endif %}</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section id="testimonials">
+        <h2>
+            {% if lang == 'uz' %}Fikrlar{% elif lang == 'ru' %}Отзывы{% else %}Testimonials{% endif %}
+        </h2>
+        <div class="testimonials-track-wrapper">
+            <div class="testimonials-track">
+                <div class="testimonial-card">
+                    <img src="https://randomuser.me/api/portraits/women/11.jpg" alt="Student">
+                    <div class="testimonial-content">
+                        <h3>Dilnoza Umarova</h3>
+                        <p>"I got 7.5 in my IELTS exam! The teachers at Prestige are absolutely amazing. They helped me improve my writing from 6.0 to 7.5 in just 3 months!"</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Student">
+                    <div class="testimonial-content">
+                        <h3>Akbar Nazarov</h3>
+                        <p>"Best IELTS academy in Tashkent! The mock tests really prepared me for the real exam. I scored 8.0 overall and got into my dream university in the UK!"</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://randomuser.me/api/portraits/women/13.jpg" alt="Student">
+                    <div class="testimonial-content">
+                        <h3>Kamola Mirzayeva</h3>
+                        <p>"Sarah's speaking classes changed everything for me. I was so nervous before but now I feel confident. Got 7.0 in speaking which I never thought was possible!"</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Student">
+                    <div class="testimonial-content">
+                        <h3>Sardor Yuldashev</h3>
+                        <p>"I studied at 3 different academies before Prestige. This is by far the best. The teachers actually care about your progress and give personal attention."</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://randomuser.me/api/portraits/women/15.jpg" alt="Student">
+                    <div class="testimonial-content">
+                        <h3>Zulfiya Rashidova</h3>
+                        <p>"I came with a 5.5 band score and left with 7.0 after 2 months. The study materials and practice tests are top quality. Highly recommend!"</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://randomuser.me/api/portraits/men/16.jpg" alt="Student">
+                    <div class="testimonial-content">
+                        <h3>Timur Kalandarov</h3>
+                        <p>"James Wilson is an incredible teacher. His tips for the reading section helped me jump from 6.5 to 8.5. Worth every penny!"</p>
+                    </div>
+                </div>
+                <!-- Duplicates for seamless loop -->
+                <div class="testimonial-card">
+                    <img src="https://randomuser.me/api/portraits/women/11.jpg" alt="Student">
+                    <div class="testimonial-content">
+                        <h3>Dilnoza Umarova</h3>
+                        <p>"I got 7.5 in my IELTS exam! The teachers at Prestige are absolutely amazing. They helped me improve my writing from 6.0 to 7.5 in just 3 months!"</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Student">
+                    <div class="testimonial-content">
+                        <h3>Akbar Nazarov</h3>
+                        <p>"Best IELTS academy in Tashkent! The mock tests really prepared me for the real exam. I scored 8.0 overall and got into my dream university in the UK!"</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://randomuser.me/api/portraits/women/13.jpg" alt="Student">
+                    <div class="testimonial-content">
+                        <h3>Kamola Mirzayeva</h3>
+                        <p>"Sarah's speaking classes changed everything for me. I was so nervous before but now I feel confident. Got 7.0 in speaking which I never thought was possible!"</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Student">
+                    <div class="testimonial-content">
+                        <h3>Sardor Yuldashev</h3>
+                        <p>"I studied at 3 different academies before Prestige. This is by far the best. The teachers actually care about your progress and give personal attention."</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://randomuser.me/api/portraits/women/15.jpg" alt="Student">
+                    <div class="testimonial-content">
+                        <h3>Zulfiya Rashidova</h3>
+                        <p>"I came with a 5.5 band score and left with 7.0 after 2 months. The study materials and practice tests are top quality. Highly recommend!"</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://randomuser.me/api/portraits/men/16.jpg" alt="Student">
+                    <div class="testimonial-content">
+                        <h3>Timur Kalandarov</h3>
+                        <p>"James Wilson is an incredible teacher. His tips for the reading section helped me jump from 6.5 to 8.5. Worth every penny!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESULTS SECTION -->
+    <section id="results">
+        <h2>
+            {% if lang == 'uz' %}Talabalarimizning natijalari{% elif lang == 'ru' %}Результаты наших студентов{% else %}Our Students' Results{% endif %}
+        </h2>
+        <div class="results-grid">
+            <div class="result-card">
+                <img class="result-avatar" src="https://randomuser.me/api/portraits/women/21.jpg" alt="Student">
+                <h3>Malika Yusupova</h3>
+                <div class="overall-score">7.5</div>
+                <p class="overall-label">{% if lang == 'uz' %}Umumiy ball{% elif lang == 'ru' %}Общий балл{% else %}Overall Band{% endif %}</p>
+                <div class="components">
+                    <div class="component"><span>Listening</span><span>8.0</span></div>
+                    <div class="component"><span>Reading</span><span>7.5</span></div>
+                    <div class="component"><span>Writing</span><span>7.0</span></div>
+                    <div class="component"><span>Speaking</span><span>7.5</span></div>
+                </div>
+            </div>
+            <div class="result-card">
+                <img class="result-avatar" src="https://randomuser.me/api/portraits/men/22.jpg" alt="Student">
+                <h3>Bobur Rahimov</h3>
+                <div class="overall-score">8.0</div>
+                <p class="overall-label">{% if lang == 'uz' %}Umumiy ball{% elif lang == 'ru' %}Общий балл{% else %}Overall Band{% endif %}</p>
+                <div class="components">
+                    <div class="component"><span>Listening</span><span>8.5</span></div>
+                    <div class="component"><span>Reading</span><span>8.0</span></div>
+                    <div class="component"><span>Writing</span><span>7.5</span></div>
+                    <div class="component"><span>Speaking</span><span>8.0</span></div>
+                </div>
+            </div>
+            <div class="result-card">
+                <img class="result-avatar" src="https://randomuser.me/api/portraits/women/23.jpg" alt="Student">
+                <h3>Nilufar Hasanova</h3>
+                <div class="overall-score">7.0</div>
+                <p class="overall-label">{% if lang == 'uz' %}Umumiy ball{% elif lang == 'ru' %}Общий балл{% else %}Overall Band{% endif %}</p>
+                <div class="components">
+                    <div class="component"><span>Listening</span><span>7.5</span></div>
+                    <div class="component"><span>Reading</span><span>7.0</span></div>
+                    <div class="component"><span>Writing</span><span>6.5</span></div>
+                    <div class="component"><span>Speaking</span><span>7.0</span></div>
+                </div>
+            </div>
+            <div class="result-card">
+                <img class="result-avatar" src="https://randomuser.me/api/portraits/men/24.jpg" alt="Student">
+                <h3>Jasur Toshmatov</h3>
+                <div class="overall-score">8.5</div>
+                <p class="overall-label">{% if lang == 'uz' %}Umumiy ball{% elif lang == 'ru' %}Общий балл{% else %}Overall Band{% endif %}</p>
+                <div class="components">
+                    <div class="component"><span>Listening</span><span>9.0</span></div>
+                    <div class="component"><span>Reading</span><span>8.5</span></div>
+                    <div class="component"><span>Writing</span><span>8.0</span></div>
+                    <div class="component"><span>Speaking</span><span>8.5</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq">
+        <h2>
+            {% if lang == 'uz' %}Ko'p so'raladigan savollar{% elif lang == 'ru' %}Часто задаваемые вопросы{% else %}Frequently Asked Questions{% endif %}
+        </h2>
+        <div class="faq-container">
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>{% if lang == 'uz' %}IELTS kursi qancha vaqt davom etadi?{% elif lang == 'ru' %}Сколько длится курс IELTS?{% else %}How long does the IELTS course take?{% endif %}</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>{% if lang == 'uz' %}Kurs odatda 2-3 oy davom etadi. Bu talabaning boshlang'ich darajasiga va maqsadiga qarab o'zgarishi mumkin.{% elif lang == 'ru' %}Курс обычно длится 2-3 месяца. Это может варьироваться в зависимости от начального уровня и цели студента.{% else %}The course usually takes 2-3 months. This can vary depending on the student's starting level and target score.{% endif %}</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>{% if lang == 'uz' %}Darslar qachon boshlanadi?{% elif lang == 'ru' %}Когда начинаются занятия?{% else %}When do classes start?{% endif %}</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>{% if lang == 'uz' %}Darslar har oy boshlanadi. Ro'yxatdan o'tish uchun biz bilan bog'laning.{% elif lang == 'ru' %}Занятия начинаются каждый месяц. Свяжитесь с нами для записи.{% else %}Classes start every month. Contact us to register for the next intake.{% endif %}</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>{% if lang == 'uz' %}Kurs narxi qancha?{% elif lang == 'ru' %}Сколько стоит курс?{% else %}How much does the course cost?{% endif %}</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>{% if lang == 'uz' %}Kurs narxi haqida ma'lumot olish uchun biz bilan bog'laning. Turli xil to'lov rejalari mavjud.{% elif lang == 'ru' %}Для получения информации о стоимости курса свяжитесь с нами. Доступны различные планы оплаты.{% else %}Please contact us for pricing information. Various payment plans are available.{% endif %}</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>{% if lang == 'uz' %}Qaysi IELTS turi menga mos?{% elif lang == 'ru' %}Какой тип IELTS мне подходит?{% else %}Which IELTS type is right for me?{% endif %}</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>{% if lang == 'uz' %}Agar chet elda o'qimoqchi bo'lsangiz Academic, agar ishlash yoki immigratsiya uchun bo'lsa General tavsiya etiladi.{% elif lang == 'ru' %}Academic рекомендуется для учёбы за рубежом, General — для работы или иммиграции.{% else %}Academic is recommended for studying abroad, while General is for work or immigration purposes.{% endif %}</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>{% if lang == 'uz' %}Mock test nima?{% elif lang == 'ru' %}Что такое пробный тест?{% else %}What is a mock test?{% endif %}</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>{% if lang == 'uz' %}Mock test — haqiqiy IELTS imtihoni sharoitida o'tkaziladigan mashq imtihoni. Bu sizni asosiy imtihonga tayyorlaydi.{% elif lang == 'ru' %}Пробный тест — это практический экзамен в условиях реального IELTS. Он готовит вас к основному экзамену.{% else %}A mock test is a practice exam conducted under real IELTS conditions. It prepares you for the actual exam.{% endif %}</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    
+    <!-- MAP SECTION -->
+    <section id="map">
+        <h2>
+            {% if lang == 'uz' %}Bizning manzil{% elif lang == 'ru' %}Наш адрес{% else %}Find Us{% endif %}
+        </h2>
+        <div class="map-container">
+            <iframe src="https://yandex.uz/map-widget/v1/?ll=69.206767%2C41.283091&z=17&pt=69.206767,41.283091,pm2rdm" width="100%" height="450" frameborder="0"></iframe>
+        </div>
+        <p class="map-address">📍 Chilanzar Ts-48, {% if lang == 'uz' %}Mirzo Ulugbek metro yaqinida{% elif lang == 'ru' %}рядом с метро Мирзо Улугбек{% else %}near Mirzo Ulugbek metro{% endif %}</p>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <h2>
+            {% if lang == 'uz' %}Biz bilan bog'laning{% elif lang == 'ru' %}Свяжитесь с нами{% else %}Contact Us{% endif %}
+        </h2>
+        <div class="contact-info">
+            <p>📞 555159900 / (97) 7250199</p>
+            <p>🕐 {% if lang == 'uz' %}Ish vaqti{% elif lang == 'ru' %}Время работы{% else %}Working Hours{% endif %}: 9:00 - 20:00</p>
+            <p>📍 Chilanzar Ts-48, {% if lang == 'uz' %}Mirzo Ulugbek metro yaqinida{% elif lang == 'ru' %}рядом с метро Мирзо Улугбек{% else %}near Mirzo Ulugbek metro{% endif %}</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/prestige_ielts_academy/" target="_blank" class="btn">📸 Instagram</a>
+                <a href="https://t.me/Prestige_IELTSAcademy" target="_blank" class="btn">💬 Telegram Chat</a>
+                <a href="https://t.me/prestige_ieltsacademy_bot" target="_blank" class="btn">🤖 Telegram Bot</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Prestige IELTS Academy</p>
+    </footer>
+    <script>
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('.faq-icon');
+            if (answer.style.display === 'block') {
+                answer.style.display = 'none';
+                icon.textContent = '+';
+            } else {
+                answer.style.display = 'block';
+                icon.textContent = '−';
+            }
+        }
+    </script>
+</body>
+</html>
