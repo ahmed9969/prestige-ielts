@@ -672,3 +672,65 @@ footer {
     color: #555;
     line-height: 1.8;
 }
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 10px;
+    }
+
+    .stat-number {
+        font-size: 36px;
+    }
+
+    .stat-card p {
+        font-size: 12px;
+    }
+
+    #stats {
+        padding: 40px 20px;
+    }
+
+    #courses {
+        padding: 40px 20px;
+    }
+
+    #staff {
+        padding: 40px 20px;
+    }
+
+    .staff-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #results {
+        padding: 40px 20px;
+    }
+
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #contact {
+        padding: 40px 20px;
+    }
+
+    #faq {
+        padding: 40px 20px;
+    }
+
+    .vacancies-container {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        padding: 10px 15px;
+    }
+}
