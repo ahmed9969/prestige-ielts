@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% if slug == 'ielts-general' %}IELTS General
+        {% elif slug == 'ielts-academic' %}IELTS Academic
+        {% elif slug == 'speaking' %}Speaking Classes
+        {% else %}Mock Tests
+        {% endif %} - Prestige IELTS Academy
+    </title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="navbar-card">
+            <a href="/"><img src="/static/logo.png" alt="Prestige IELTS Academy" class="logo"></a>
+            <div class="nav-links">
+                <a href="/">{% if lang == 'uz' %}Bosh sahifa{% elif lang == 'ru' %}Главная{% else %}Home{% endif %}</a>
+                <a href="/#courses">{% if lang == 'uz' %}Kurslar{% elif lang == 'ru' %}Курсы{% else %}Courses{% endif %}</a>
+                <a href="/#contact">{% if lang == 'uz' %}Aloqa{% elif lang == 'ru' %}Контакты{% else %}Contact{% endif %}</a>
+                <a href="/vacancies">{% if lang == 'uz' %}Vakansiyalar{% elif lang == 'ru' %}Вакансии{% else %}Vacancies{% endif %}</a>
+            </div>
+            <div class="nav-right">
+                <div class="lang-switcher">
+                    <a href="?lang=en">🇬🇧 EN</a>
+                    <a href="?lang=uz">🇺🇿 UZ</a>
+                    <a href="?lang=ru">🇷🇺 RU</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- COURSE HERO -->
+    <section class="hero">
+        <h1>
+            {% if slug == 'ielts-general' %}
+                {% if lang == 'uz' %}IELTS General{% elif lang == 'ru' %}IELTS Общий{% else %}IELTS General{% endif %}
+            {% elif slug == 'ielts-academic' %}
+                {% if lang == 'uz' %}IELTS Academic{% elif lang == 'ru' %}IELTS Академический{% else %}IELTS Academic{% endif %}
+            {% elif slug == 'speaking' %}
+                {% if lang == 'uz' %}Og'zaki nutq darslari{% elif lang == 'ru' %}Разговорные занятия{% else %}Speaking Classes{% endif %}
+            {% else %}
+                Mock Tests
+            {% endif %}
+        </h1>
+        <p>
+            {% if slug == 'ielts-general' %}
+                {% if lang == 'uz' %}Immigratsiya va ish uchun IELTS tayyorgarlik{% elif lang == 'ru' %}Подготовка к IELTS для иммиграции и работы{% else %}IELTS preparation for immigration and work{% endif %}
+            {% elif slug == 'ielts-academic' %}
+                {% if lang == 'uz' %}Universitetga kirish uchun IELTS tayyorgarlik{% elif lang == 'ru' %}Подготовка к IELTS для поступления в университет{% else %}IELTS preparation for university admission{% endif %}
+            {% elif slug == 'speaking' %}
+                {% if lang == 'uz' %}Ingliz tilida gaplashish ko'nikmalarini rivojlantiring{% elif lang == 'ru' %}Развивайте навыки устной речи на английском{% else %}Improve your English speaking skills with confidence{% endif %}
+            {% else %}
+                {% if lang == 'uz' %}Haqiqiy imtihon sharoitida mashq qiling{% elif lang == 'ru' %}Практикуйтесь в условиях реального экзамена{% else %}Practice under real exam conditions{% endif %}
+            {% endif %}
+        </p>
+        <a href="#contact-course" class="btn">
+            {% if lang == 'uz' %}Ro'yxatdan o'tish{% elif lang == 'ru' %}Записаться{% else %}Enroll Now{% endif %}
+        </a>
+    </section>
+
+    <!-- COURSE DETAIL -->
+    <section id="course-detail">
+        <div class="course-detail-container">
+
+            <div class="course-detail-card">
+                <h2>{% if lang == 'uz' %}Kurs haqida{% elif lang == 'ru' %}О курсе{% else %}About This Course{% endif %}</h2>
+                <p>
+                    {% if slug == 'ielts-general' %}
+                        {% if lang == 'uz' %}IELTS General kursi immigratsiya, viza va ish uchun IELTS imtihoniga tayyorlaydigan to'liq dastur. Kurs Listening, Reading, Writing va Speaking bo'limlarini qamrab oladi. Boshlang'ich darajadan tortib yuqori darajagacha bo'lgan barcha talabalar uchun mos.{% elif lang == 'ru' %}Курс IELTS General — это комплексная программа подготовки к экзамену IELTS для иммиграции, визы и трудоустройства. Курс охватывает все четыре модуля: Listening, Reading, Writing и Speaking. Подходит для студентов всех уровней.{% else %}The IELTS General course is a comprehensive preparation programme for the IELTS exam taken for immigration, visa, and employment purposes. It covers all four modules: Listening, Reading, Writing and Speaking. Suitable for students of all levels.{% endif %}
+                    {% elif slug == 'ielts-academic' %}
+                        {% if lang == 'uz' %}IELTS Academic kursi universitetga kirish va akademik maqsadlar uchun mo'ljallangan. Ilmiy matnlarni o'qish, akademik insho yozish va murakkab mavzular bo'yicha gaplashishga alohida e'tibor beriladi. Chet el universitetlariga hujjat topshirmoqchi bo'lganlar uchun ideal.{% elif lang == 'ru' %}Курс IELTS Academic предназначен для поступления в университет и достижения академических целей. Особое внимание уделяется чтению научных текстов, написанию академических эссе и обсуждению сложных тем. Идеально для тех, кто подаёт документы в зарубежные университеты.{% else %}The IELTS Academic course is designed for university admission and academic purposes. Special emphasis is placed on reading scientific texts, writing academic essays, and discussing complex topics. Ideal for those applying to universities abroad.{% endif %}
+                    {% elif slug == 'speaking' %}
+                        {% if lang == 'uz' %}Speaking Classes kursi talabalarning ingliz tilida erkin va ishonch bilan gapirishiga yordam beradi. Native speaker o'qituvchilar bilan individual va guruh darslari orqali talaffuz, lug'at va grammatika ko'nikmalaringizni yaxshilang. IELTS Speaking bo'limida yuqori ball olishga tayyorlaning.{% elif lang == 'ru' %}Курс Speaking Classes помогает студентам свободно и уверенно говорить по-английски. Совершенствуйте произношение, словарный запас и грамматические навыки через индивидуальные и групповые занятия с преподавателями-носителями языка. Подготовьтесь к высокому баллу по разделу IELTS Speaking.{% else %}Speaking Classes help students speak English freely and with confidence. Improve your pronunciation, vocabulary and grammar skills through individual and group sessions with native-speaker teachers. Prepare to achieve a high band in the IELTS Speaking module.{% endif %}
+                    {% else %}
+                        {% if lang == 'uz' %}Mock Tests kursi haqiqiy IELTS imtihoni sharoitida to'liq mashq imtihonlarini o'z ichiga oladi. Har bir test tugagandan so'ng batafsil tahlil va shaxsiy fikr-mulohaza beriladi. Imtihon kuniga tayyorgarlik ko'ring.{% elif lang == 'ru' %}Курс Mock Tests включает полные пробные экзамены в условиях реального IELTS. После каждого теста предоставляется подробный анализ и персональная обратная связь. Готовьтесь к экзаменационному дню без сюрпризов.{% else %}The Mock Tests course includes full practice exams under real IELTS conditions. After each test, detailed analysis and personal feedback are provided. Prepare for exam day without any surprises.{% endif %}
+                    {% endif %}
+                </p>
+            </div>
+
+            <div class="course-detail-card">
+                <h2>{% if lang == 'uz' %}Nimani o'rganasiz{% elif lang == 'ru' %}Что вы изучите{% else %}What You'll Learn{% endif %}</h2>
+                <ul class="course-learn-list">
+                    {% if slug == 'ielts-general' %}
+                        <li>✅ {% if lang == 'uz' %}Listening strategiyalari{% elif lang == 'ru' %}Стратегии аудирования{% else %}Listening strategies{% endif %}</li>
+                        <li>✅ {% if lang == 'uz' %}General Reading ko'nikmalari{% elif lang == 'ru' %}Навыки General Reading{% else %}General Reading skills{% endif %}</li>
+                        <li>✅ {% if lang == 'uz' %}Letter va essay yozish{% elif lang == 'ru' %}Написание писем и эссе{% else %}Letter and essay writing{% endif %}</li>
+                        <li>✅ {% if lang == 'uz' %}Speaking texnikalari{% elif lang == 'ru' %}Техники Speaking{% else %}Speaking techniques{% endif %}</li>
+                        <li>✅ {% if lang == 'uz' %}Vaqt boshqaruvi{% elif lang == 'ru' %}Управление временем{% else %}Time management{% endif %}</li>
+                    {% elif slug == 'ielts-academic' %}
+                        <li>✅ {% if lang == 'uz' %}Akademik matnlarni tahlil qilish{% elif lang == 'ru' %}Анализ академических текстов{% else %}Analysing academic texts{% endif %}</li>
+                        <li>✅ {% if lang == 'uz' %}Task 1 va Task 2 insho{% elif lang == 'ru' %}Эссе Task 1 и Task 2{% else %}Task 1 and Task 2 essays{% endif %}</li>
+                        <li>✅ {% if lang == 'uz' %}Ilmiy lug'at{% elif lang == 'ru' %}Научная лексика{% else %}Academic vocabulary{% endif %}</li>
+                        <li>✅ {% if lang == 'uz' %}Murakkab mavzularda gaplashish{% elif lang == 'ru' %}Обсуждение сложных тем{% else %}Discussing complex topics{% endif %}</li>
+                        <li>✅ {% if lang == 'uz' %}Imtihon strategiyalari{% elif lang == 'ru' %}Экзаменационные стратегии{% else %}Exam strategies{% endif %}</li>
+                    {% elif slug == 'speaking' %}
+                        <li>✅ {% if lang == 'uz' %}To'g'ri talaffuz{% elif lang == 'ru' %}Правильное произношение{% else %}Correct pronunciation{% endif %}</li>
+                        <li>✅ {% if lang == 'uz' %}Kundalik mavzularda gaplashish{% elif lang == 'ru' %}Разговор на повседневные темы{% else %}Speaking on everyday topics{% endif %}</li>
+                        <li>✅ IELTS Speaking Part 1, 2, 3</li>
+                        <li>✅ {% if lang == 'uz' %}Boyitilgan lug'at{% elif lang == 'ru' %}Расширенный словарный запас{% else %}Enriched vocabulary{% endif %}</li>
+                        <li>✅ {% if lang == 'uz' %}Ishonch bilan gaplashish{% elif lang == 'ru' %}Уверенная речь{% else %}Speaking with confidence{% endif %}</li>
+                    {% else %}
+                        <li>✅ {% if lang == 'uz' %}To'liq imtihon simulyatsiyasi{% elif lang == 'ru' %}Полная симуляция экзамена{% else %}Full exam simulation{% endif %}</li>
+                        <li>✅ {% if lang == 'uz' %}Batafsil xatolar tahlili{% elif lang == 'ru' %}Подробный анализ ошибок{% else %}Detailed error analysis{% endif %}</li>
+                        <li>✅ {% if lang == 'uz' %}Shaxsiy fikr-mulohaza{% elif lang == 'ru' %}Персональная обратная связь{% else %}Personal feedback{% endif %}</li>
+                        <li>✅ {% if lang == 'uz' %}Bosim ostida ishlash ko'nikmalari{% elif lang == 'ru' %}Навыки работы под давлением{% else %}Working under pressure skills{% endif %}</li>
+                        <li>✅ {% if lang == 'uz' %}Imtihon oldi tayyorgarlik{% elif lang == 'ru' %}Подготовка накануне экзамена{% else %}Pre-exam preparation{% endif %}</li>
+                    {% endif %}
+                </ul>
+            </div>
+
+            <div class="course-detail-card">
+                <h2>{% if lang == 'uz' %}Kurs tafsilotlari{% elif lang == 'ru' %}Детали курса{% else %}Course Details{% endif %}</h2>
+                <div class="course-details-grid">
+                    <div class="course-detail-item">
+                        <span class="cdi-label">{% if lang == 'uz' %}Davomiylik{% elif lang == 'ru' %}Продолжительность{% else %}Duration{% endif %}</span>
+                        <span class="cdi-value">
+                            {% if slug == 'mock-tests' %}
+                                {% if lang == 'uz' %}Bitta mashg'ulot{% elif lang == 'ru' %}Одно занятие{% else %}Single session{% endif %}
+                            {% else %}
+                                {% if lang == 'uz' %}2–3 oy{% elif lang == 'ru' %}2–3 месяца{% else %}2–3 months{% endif %}
+                            {% endif %}
+                        </span>
+                    </div>
+                    <div class="course-detail-item">
+                        <span class="cdi-label">{% if lang == 'uz' %}Dars formati{% elif lang == 'ru' %}Формат занятий{% else %}Format{% endif %}</span>
+                        <span class="cdi-value">
+                            {% if slug == 'speaking' %}
+                                {% if lang == 'uz' %}Guruh & Individual{% elif lang == 'ru' %}Группа & Индивидуально{% else %}Group & Individual{% endif %}
+                            {% else %}
+                                {% if lang == 'uz' %}Guruh{% elif lang == 'ru' %}Группа{% else %}Group{% endif %}
+                            {% endif %}
+                        </span>
+                    </div>
+                    <div class="course-detail-item">
+                        <span class="cdi-label">{% if lang == 'uz' %}Daraja{% elif lang == 'ru' %}Уровень{% else %}Level{% endif %}</span>
+                        <span class="cdi-value">{% if lang == 'uz' %}Barcha darajalar{% elif lang == 'ru' %}Все уровни{% else %}All levels{% endif %}</span>
+                    </div>
+                    <div class="course-detail-item">
+                        <span class="cdi-label">{% if lang == 'uz' %}Til{% elif lang == 'ru' %}Язык{% else %}Language{% endif %}</span>
+                        <span class="cdi-value">English / O'zbek / Русский</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ENROLL CTA -->
+    <section id="contact-course" class="contact-cta">
+        <h2>{% if lang == 'uz' %}Ro'yxatdan o'ting{% elif lang == 'ru' %}Записаться на курс{% else %}Enroll in This Course{% endif %}</h2>
+        <p>{% if lang == 'uz' %}Bizning o'qituvchilarimiz sizga yordam berishga tayyor{% elif lang == 'ru' %}Наши преподаватели готовы помочь вам{% else %}Our teachers are ready to help you succeed{% endif %}</p>
+        <div class="course-cta-links">
+            <a href="https://t.me/prestige_ieltsacademy_bot" target="_blank" class="btn">🤖 Telegram Bot</a>
+            <a href="https://t.me/Prestige_IELTSAcademy" target="_blank" class="btn">💬 Telegram Chat</a>
+            <a href="tel:555159900" class="btn">📞 555159900</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Prestige IELTS Academy</p>
+    </footer>
+
+</body>
+</html>

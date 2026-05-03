@@ -5,29 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prestige IELTS Academy</title>
     <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <!-- NAVBAR -->
     <nav>
-        <img src="/static/logo.png" alt="Prestige IELTS Academy" class="logo">
-        <div class="nav-links">
-            <a href="#courses">{% if lang == 'uz' %}Kurslar{% elif lang == 'ru' %}Курсы{% else %}Courses{% endif %}</a>
-            <a href="#director">{% if lang == 'uz' %}Direktor{% elif lang == 'ru' %}Директор{% else %}Director{% endif %}</a>
-            <a href="#staff">{% if lang == 'uz' %}O'qituvchilar{% elif lang == 'ru' %}Преподаватели{% else %}Teachers{% endif %}</a>
-            <a href="#results">{% if lang == 'uz' %}Natijalar{% elif lang == 'ru' %}Результаты{% else %}Results{% endif %}</a>
-            <a href="#contact">{% if lang == 'uz' %}Aloqa{% elif lang == 'ru' %}Контакты{% else %}Contact{% endif %}</a>
-            <a href="/vacancies">{% if lang == 'uz' %}Vakansiyalar{% elif lang == 'ru' %}Вакансии{% else %}Vacancies{% endif %}</a>
+        <!-- Desktop logo: outside the card, left side -->
+        <a href="#home" class="nav-logo-outer">
+            <img src="/static/logo.png" alt="Prestige IELTS Academy">
+        </a>
+
+        <div class="navbar-card">
+            <!-- Mobile bar: logo + hamburger (hidden on desktop) -->
+            <div class="nav-mobile-bar">
+                <img src="/static/logo.png" alt="Prestige IELTS Academy" class="logo-mobile">
+                <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <!-- Nav links + lang: collapsible on mobile -->
+            <div class="nav-collapse" id="navCollapse">
+                <div class="nav-links">
+                    <a href="#home">{% if lang == 'uz' %}Bosh sahifa{% elif lang == 'ru' %}Главная{% else %}Home{% endif %}</a>
+                    <a href="#courses">{% if lang == 'uz' %}Kurslar{% elif lang == 'ru' %}Курсы{% else %}Courses{% endif %}</a>
+                    <a href="#director">{% if lang == 'uz' %}Direktor{% elif lang == 'ru' %}Директор{% else %}Director{% endif %}</a>
+                    <a href="#staff">{% if lang == 'uz' %}O'qituvchilar{% elif lang == 'ru' %}Преподаватели{% else %}Teachers{% endif %}</a>
+                    <a href="#results">{% if lang == 'uz' %}Natijalar{% elif lang == 'ru' %}Результаты{% else %}Results{% endif %}</a>
+                    <a href="#contact">{% if lang == 'uz' %}Aloqa{% elif lang == 'ru' %}Контакты{% else %}Contact{% endif %}</a>
+                    <a href="/vacancies">{% if lang == 'uz' %}Vakansiyalar{% elif lang == 'ru' %}Вакансии{% else %}Vacancies{% endif %}</a>
+                </div>
+                <div class="lang-switcher">
+                    <a href="?lang=en">🇬🇧 EN</a>
+                    <a href="?lang=uz">🇺🇿 UZ</a>
+                    <a href="?lang=ru">🇷🇺 RU</a>
+                </div>
+            </div>
         </div>
-        <div class="lang-switcher">
-            <a href="?lang=en">🇬🇧 EN</a>
-            <a href="?lang=uz">🇺🇿 UZ</a>
-            <a href="?lang=ru">🇷🇺 RU</a>
-        </div>
+
+        <!-- Desktop CTA: outside the card, right side -->
+        <a href="#contact" class="nav-cta">
+            {% if lang == 'uz' %}Ro'yxatdan o'tish{% elif lang == 'ru' %}Записаться{% else %}Enroll Now{% endif %}
+        </a>
     </nav>
 
     <!-- HERO SECTION -->
-    <section class="hero">
+    <section class="hero" id="home">
         <h1>
             {% if lang == 'uz' %}
                 Prestige IELTS Academy'ga Xush Kelibsiz
@@ -79,22 +108,22 @@
             {% if lang == 'uz' %}Kurslarimiz{% elif lang == 'ru' %}Наши курсы{% else %}Our Courses{% endif %}
         </h2>
         <div class="courses-grid">
-            <div class="course-card">
+            <a href="/courses/ielts-general{% if lang != 'en' %}?lang={{ lang }}{% endif %}" class="course-card">
                 <h3>IELTS General</h3>
                 <p>{% if lang == 'uz' %}Umumiy IELTS imtihoniga tayyorgarlik{% elif lang == 'ru' %}Подготовка к общему IELTS{% else %}Preparation for General IELTS exam{% endif %}</p>
-            </div>
-            <div class="course-card">
+            </a>
+            <a href="/courses/ielts-academic{% if lang != 'en' %}?lang={{ lang }}{% endif %}" class="course-card">
                 <h3>IELTS Academic</h3>
                 <p>{% if lang == 'uz' %}Akademik IELTS imtihoniga tayyorgarlik{% elif lang == 'ru' %}Подготовка к академическому IELTS{% else %}Preparation for Academic IELTS exam{% endif %}</p>
-            </div>
-            <div class="course-card">
+            </a>
+            <a href="/courses/speaking{% if lang != 'en' %}?lang={{ lang }}{% endif %}" class="course-card">
                 <h3>{% if lang == 'uz' %}Og'zaki nutq{% elif lang == 'ru' %}Разговорный{% else %}Speaking Classes{% endif %}</h3>
                 <p>{% if lang == 'uz' %}Ingliz tilida gaplashishni rivojlantirish{% elif lang == 'ru' %}Развитие разговорного английского{% else %}Improve your English speaking skills{% endif %}</p>
-            </div>
-            <div class="course-card">
+            </a>
+            <a href="/courses/mock-tests{% if lang != 'en' %}?lang={{ lang }}{% endif %}" class="course-card">
                 <h3>Mock Tests</h3>
                 <p>{% if lang == 'uz' %}Haqiqiy imtihon sharoitida mashq{% elif lang == 'ru' %}Практика в условиях реального экзамена{% else %}Practice under real exam conditions{% endif %}</p>
-            </div>
+            </a>
         </div>
     </section>
 
@@ -124,31 +153,460 @@
         <h2>
             {% if lang == 'uz' %}Bizning o'qituvchilar{% elif lang == 'ru' %}Наши преподаватели{% else %}Our Teachers{% endif %}
         </h2>
-        <div class="staff-grid">
-            <div class="staff-card">
-                <img class="staff-avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="James Wilson">
-                <h3>James Wilson</h3>
-                <p class="staff-role">IELTS General & Academic</p>
-                <p class="staff-desc">{% if lang == 'uz' %}10 yillik tajriba, 500+ muvaffaqiyatli talaba{% elif lang == 'ru' %}10 лет опыта, 500+ успешных студентов{% else %}10 years experience, 500+ successful students{% endif %}</p>
+        <p class="staff-subtitle">
+            {% if lang == 'uz' %}Yuqori natijalarga erishishga yordam beradigan mutaxassislar jamoamiz{% elif lang == 'ru' %}Наша команда специалистов, помогающая достичь высоких результатов{% else %}Our team of specialists dedicated to helping you achieve top scores{% endif %}
+        </p>
+
+        <div class="staff-carousel-wrapper">
+            <button class="staff-arrow staff-arrow-prev" id="staffPrev" aria-label="Previous">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="staff-track-outer">
+                <div class="staff-track" id="staffTrack">
+
+                    <div class="staff-flip-item">
+                        <div class="staff-flip-card">
+                            <div class="staff-flip-inner">
+                                <div class="staff-flip-front">
+                                    <div class="staff-photo-wrap"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James Wilson"></div>
+                                    <div class="staff-front-info">
+                                        <h3>James Wilson</h3>
+                                        <p class="sfi-role">IELTS General &amp; Academic</p>
+                                        <p class="sfi-dept">{% if lang == 'uz' %}O'qituvchi{% elif lang == 'ru' %}Преподаватель{% else %}Teacher{% endif %}</p>
+                                    </div>
+                                </div>
+                                <div class="staff-flip-back">
+                                    <div>
+                                        <h3>James Wilson</h3>
+                                        <p class="sfb-role">IELTS General &amp; Academic</p>
+                                        <p class="sfb-bio">{% if lang == 'uz' %}10 yildan ortiq tajribasi bilan Jeyms 500 dan ortiq talabaga maqsad ballariga erishishda yordam berdi. Uning General va Academic modullarga yondashuvi tengsizdir.{% elif lang == 'ru' %}За 10+ лет Джеймс помог более 500 студентам достичь целевого балла. Его системный подход к General и Academic модулям не имеет себе равных.{% else %}With 10+ years of experience, James has helped 500+ students reach their target band scores. His systematic approach to both General and Academic modules is unmatched.{% endif %}</p>
+                                    </div>
+                                    <div class="sfb-contact">
+                                        <a href="mailto:james@prestigeielts.com" onclick="event.stopPropagation()">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+                                            james@prestigeielts.com
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="staff-flip-item">
+                        <div class="staff-flip-card">
+                            <div class="staff-flip-inner">
+                                <div class="staff-flip-front">
+                                    <div class="staff-photo-wrap"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson"></div>
+                                    <div class="staff-front-info">
+                                        <h3>Sarah Johnson</h3>
+                                        <p class="sfi-role">Speaking &amp; Writing</p>
+                                        <p class="sfi-dept">{% if lang == 'uz' %}O'qituvchi{% elif lang == 'ru' %}Преподаватель{% else %}Teacher{% endif %}</p>
+                                    </div>
+                                </div>
+                                <div class="staff-flip-back">
+                                    <div>
+                                        <h3>Sarah Johnson</h3>
+                                        <p class="sfb-role">Speaking &amp; Writing</p>
+                                        <p class="sfb-bio">{% if lang == 'uz' %}Sara Kembrij sertifikatlangan o'qituvchi bo'lib, Speaking va Writing bo'yicha ixtisoslashgan. Uning innovatsion fikr-mulohaza usullari talabalar ballini 1–2 ga oshiradi.{% elif lang == 'ru' %}Сара — сертифицированный преподаватель Cambridge по Speaking и Writing. Её инновационные методы обратной связи стабильно улучшают результаты на 1–2 балла.{% else %}Sarah is a Cambridge-certified teacher specialising in Speaking and Writing. Her innovative feedback techniques consistently help students improve by 1–2 bands.{% endif %}</p>
+                                    </div>
+                                    <div class="sfb-contact">
+                                        <a href="mailto:sarah@prestigeielts.com" onclick="event.stopPropagation()">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+                                            sarah@prestigeielts.com
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="staff-flip-item">
+                        <div class="staff-flip-card">
+                            <div class="staff-flip-inner">
+                                <div class="staff-flip-front">
+                                    <div class="staff-photo-wrap"><img src="https://randomuser.me/api/portraits/men/56.jpg" alt="Michael Brown"></div>
+                                    <div class="staff-front-info">
+                                        <h3>Michael Brown</h3>
+                                        <p class="sfi-role">Listening &amp; Reading</p>
+                                        <p class="sfi-dept">{% if lang == 'uz' %}O'qituvchi{% elif lang == 'ru' %}Преподаватель{% else %}Teacher{% endif %}</p>
+                                    </div>
+                                </div>
+                                <div class="staff-flip-back">
+                                    <div>
+                                        <h3>Michael Brown</h3>
+                                        <p class="sfb-role">Listening &amp; Reading</p>
+                                        <p class="sfb-bio">{% if lang == 'uz' %}Maykl IELTS 9.0 ballga erishdi va 8 yillik o'qitish tajribasiga ega. U Listening va Reading bo'yicha natijalani keskin oshiradigan maxsus strategiyalar ishlab chiqdi.{% elif lang == 'ru' %}Майкл набрал идеальный балл IELTS 9.0 и имеет 8 лет опыта преподавания. Он разработал уникальные стратегии по Listening и Reading.{% else %}Michael achieved a perfect IELTS 9.0 and brings 8 years of teaching expertise. He developed specialist strategies for Listening and Reading that dramatically lift student scores.{% endif %}</p>
+                                    </div>
+                                    <div class="sfb-contact">
+                                        <a href="mailto:michael@prestigeielts.com" onclick="event.stopPropagation()">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+                                            michael@prestigeielts.com
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="staff-flip-item">
+                        <div class="staff-flip-card">
+                            <div class="staff-flip-inner">
+                                <div class="staff-flip-front">
+                                    <div class="staff-photo-wrap"><img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emily Davis"></div>
+                                    <div class="staff-front-info">
+                                        <h3>Emily Davis</h3>
+                                        <p class="sfi-role">Mock Tests &amp; Academic</p>
+                                        <p class="sfi-dept">{% if lang == 'uz' %}O'qituvchi{% elif lang == 'ru' %}Преподаватель{% else %}Teacher{% endif %}</p>
+                                    </div>
+                                </div>
+                                <div class="staff-flip-back">
+                                    <div>
+                                        <h3>Emily Davis</h3>
+                                        <p class="sfb-role">Mock Tests &amp; Academic</p>
+                                        <p class="sfb-bio">{% if lang == 'uz' %}Emili 300 dan ortiq talabani yuqori IELTS ballariga tayyorladi. Uning batafsil fikr-mulohazasi talabalarning zaif tomonlarini tezda aniqlashga va bartaraf etishga yordam beradi.{% elif lang == 'ru' %}Эмили подготовила 300+ студентов к высоким баллам IELTS. Её детальная обратная связь помогает быстро выявить и устранить слабые стороны.{% else %}Emily has prepared 300+ students for high IELTS scores. Her detailed feedback helps students pinpoint and fix weak areas fast.{% endif %}</p>
+                                    </div>
+                                    <div class="sfb-contact">
+                                        <a href="mailto:emily@prestigeielts.com" onclick="event.stopPropagation()">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+                                            emily@prestigeielts.com
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="staff-flip-item">
+                        <div class="staff-flip-card">
+                            <div class="staff-flip-inner">
+                                <div class="staff-flip-front">
+                                    <div class="staff-photo-wrap"><img src="https://randomuser.me/api/portraits/men/43.jpg" alt="David Clarke"></div>
+                                    <div class="staff-front-info">
+                                        <h3>David Clarke</h3>
+                                        <p class="sfi-role">IELTS Writing</p>
+                                        <p class="sfi-dept">{% if lang == 'uz' %}O'qituvchi{% elif lang == 'ru' %}Преподаватель{% else %}Teacher{% endif %}</p>
+                                    </div>
+                                </div>
+                                <div class="staff-flip-back">
+                                    <div>
+                                        <h3>David Clarke</h3>
+                                        <p class="sfb-role">IELTS Writing</p>
+                                        <p class="sfb-bio">{% if lang == 'uz' %}Devid IELTS Writing bo'yicha mutaxassis bo'lib, 7 yillik o'qitish tajribasiga ega. Uning Task 1 va Task 2 bo'yicha yondashuvi talabalar ballini tez oshiradi.{% elif lang == 'ru' %}Дэвид — специалист по IELTS Writing с 7-летним опытом преподавания. Его подход к Task 1 и Task 2 быстро повышает результаты студентов.{% else %}David is a Writing specialist with 7 years of teaching experience. His structured approach to Task 1 and Task 2 rapidly lifts student scores.{% endif %}</p>
+                                    </div>
+                                    <div class="sfb-contact">
+                                        <a href="mailto:david@prestigeielts.com" onclick="event.stopPropagation()">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+                                            david@prestigeielts.com
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="staff-flip-item">
+                        <div class="staff-flip-card">
+                            <div class="staff-flip-inner">
+                                <div class="staff-flip-front">
+                                    <div class="staff-photo-wrap"><img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Anna Thompson"></div>
+                                    <div class="staff-front-info">
+                                        <h3>Anna Thompson</h3>
+                                        <p class="sfi-role">Listening Specialist</p>
+                                        <p class="sfi-dept">{% if lang == 'uz' %}O'qituvchi{% elif lang == 'ru' %}Преподаватель{% else %}Teacher{% endif %}</p>
+                                    </div>
+                                </div>
+                                <div class="staff-flip-back">
+                                    <div>
+                                        <h3>Anna Thompson</h3>
+                                        <p class="sfb-role">Listening Specialist</p>
+                                        <p class="sfb-bio">{% if lang == 'uz' %}Anna Listening bo'yicha chuqur ixtisoslashgan o'qituvchi. U talabalarni har xil aksent va tezliklarda tinglashga moslashtiradi. Uning usuli bilan 9.0 ball olgan talabalar bor.{% elif lang == 'ru' %}Анна — специалист по аудированию. Она помогает студентам адаптироваться к различным акцентам и темпам речи. Среди её студентов есть получившие 9.0 по Listening.{% else %}Anna specialises in Listening, helping students adapt to different accents and speeds. Several of her students have achieved a perfect 9.0 in the Listening module.{% endif %}</p>
+                                    </div>
+                                    <div class="sfb-contact">
+                                        <a href="mailto:anna@prestigeielts.com" onclick="event.stopPropagation()">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+                                            anna@prestigeielts.com
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="staff-flip-item">
+                        <div class="staff-flip-card">
+                            <div class="staff-flip-inner">
+                                <div class="staff-flip-front">
+                                    <div class="staff-photo-wrap"><img src="https://randomuser.me/api/portraits/men/61.jpg" alt="Robert Kim"></div>
+                                    <div class="staff-front-info">
+                                        <h3>Robert Kim</h3>
+                                        <p class="sfi-role">Reading &amp; Vocabulary</p>
+                                        <p class="sfi-dept">{% if lang == 'uz' %}O'qituvchi{% elif lang == 'ru' %}Преподаватель{% else %}Teacher{% endif %}</p>
+                                    </div>
+                                </div>
+                                <div class="staff-flip-back">
+                                    <div>
+                                        <h3>Robert Kim</h3>
+                                        <p class="sfb-role">Reading &amp; Vocabulary</p>
+                                        <p class="sfb-bio">{% if lang == 'uz' %}Robert Reading va lug'at boyitish bo'yicha 6 yillik tajribaga ega. Uning skimming va scanning texnikalari talabalarning vaqtini sezilarli darajada tejaydi.{% elif lang == 'ru' %}Роберт имеет 6-летний опыт в Reading и расширении словарного запаса. Его техники skimming и scanning значительно экономят время студентов.{% else %}Robert has 6 years of experience in Reading and vocabulary building. His skimming and scanning techniques save students significant time in the exam.{% endif %}</p>
+                                    </div>
+                                    <div class="sfb-contact">
+                                        <a href="mailto:robert@prestigeielts.com" onclick="event.stopPropagation()">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+                                            robert@prestigeielts.com
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="staff-flip-item">
+                        <div class="staff-flip-card">
+                            <div class="staff-flip-inner">
+                                <div class="staff-flip-front">
+                                    <div class="staff-photo-wrap"><img src="https://randomuser.me/api/portraits/women/27.jpg" alt="Jessica Martinez"></div>
+                                    <div class="staff-front-info">
+                                        <h3>Jessica Martinez</h3>
+                                        <p class="sfi-role">Academic Writing</p>
+                                        <p class="sfi-dept">{% if lang == 'uz' %}O'qituvchi{% elif lang == 'ru' %}Преподаватель{% else %}Teacher{% endif %}</p>
+                                    </div>
+                                </div>
+                                <div class="staff-flip-back">
+                                    <div>
+                                        <h3>Jessica Martinez</h3>
+                                        <p class="sfb-role">Academic Writing</p>
+                                        <p class="sfb-bio">{% if lang == 'uz' %}Jessika akademik yozish bo'yicha mutaxassis va Cambridge sertifikatlangan o'qituvchi. U talabalarni murakkab akademik insholar yozishga o'rgatadi va Writing 7.0+ olishga yordam beradi.{% elif lang == 'ru' %}Джессика — специалист по академическому письму и сертифицированный преподаватель Cambridge. Она обучает написанию сложных академических эссе и помогает достичь Writing 7.0+.{% else %}Jessica is an Academic Writing specialist and Cambridge-certified teacher. She guides students through complex academic essays and consistently helps them achieve Writing 7.0+.{% endif %}</p>
+                                    </div>
+                                    <div class="sfb-contact">
+                                        <a href="mailto:jessica@prestigeielts.com" onclick="event.stopPropagation()">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+                                            jessica@prestigeielts.com
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="staff-flip-item">
+                        <div class="staff-flip-card">
+                            <div class="staff-flip-inner">
+                                <div class="staff-flip-front">
+                                    <div class="staff-photo-wrap"><img src="https://randomuser.me/api/portraits/men/37.jpg" alt="Thomas Anderson"></div>
+                                    <div class="staff-front-info">
+                                        <h3>Thomas Anderson</h3>
+                                        <p class="sfi-role">General English</p>
+                                        <p class="sfi-dept">{% if lang == 'uz' %}O'qituvchi{% elif lang == 'ru' %}Преподаватель{% else %}Teacher{% endif %}</p>
+                                    </div>
+                                </div>
+                                <div class="staff-flip-back">
+                                    <div>
+                                        <h3>Thomas Anderson</h3>
+                                        <p class="sfb-role">General English</p>
+                                        <p class="sfb-bio">{% if lang == 'uz' %}Tomas umumiy ingliz tili bo'yicha tajribali o'qituvchi. U talabalarni boshlang'ich darajadan IELTS darajasiga olib chiqishda mohir. Uning sabr-toqat bilan individual yondashishi talabalar orasida mashhur.{% elif lang == 'ru' %}Томас — опытный преподаватель общего английского языка. Он мастерски ведёт студентов от начального уровня до уровня IELTS. Его терпеливый индивидуальный подход популярен среди студентов.{% else %}Thomas is an experienced General English teacher skilled at taking students from beginner level to IELTS readiness. His patient, personal approach is popular among students.{% endif %}</p>
+                                    </div>
+                                    <div class="sfb-contact">
+                                        <a href="mailto:thomas@prestigeielts.com" onclick="event.stopPropagation()">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+                                            thomas@prestigeielts.com
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="staff-flip-item">
+                        <div class="staff-flip-card">
+                            <div class="staff-flip-inner">
+                                <div class="staff-flip-front">
+                                    <div class="staff-photo-wrap"><img src="https://randomuser.me/api/portraits/women/38.jpg" alt="Olivia White"></div>
+                                    <div class="staff-front-info">
+                                        <h3>Olivia White</h3>
+                                        <p class="sfi-role">Speaking &amp; Pronunciation</p>
+                                        <p class="sfi-dept">{% if lang == 'uz' %}O'qituvchi{% elif lang == 'ru' %}Преподаватель{% else %}Teacher{% endif %}</p>
+                                    </div>
+                                </div>
+                                <div class="staff-flip-back">
+                                    <div>
+                                        <h3>Olivia White</h3>
+                                        <p class="sfb-role">Speaking &amp; Pronunciation</p>
+                                        <p class="sfb-bio">{% if lang == 'uz' %}Oliviya talaffuz va gapirish ko'nikmalari bo'yicha ixtisoslashgan. U native speaker sifatida talabalarni tabiiy ingliz tilida gaplashishga o'rgatadi. Uning darslari qiziqarli va samarali.{% elif lang == 'ru' %}Оливия специализируется на произношении и разговорных навыках. Как носитель языка она учит студентов естественному английскому. Её занятия интересны и эффективны.{% else %}Olivia specialises in pronunciation and speaking skills. As a native speaker she trains students in natural English. Her lessons are engaging and highly effective.{% endif %}</p>
+                                    </div>
+                                    <div class="sfb-contact">
+                                        <a href="mailto:olivia@prestigeielts.com" onclick="event.stopPropagation()">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+                                            olivia@prestigeielts.com
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="staff-flip-item">
+                        <div class="staff-flip-card">
+                            <div class="staff-flip-inner">
+                                <div class="staff-flip-front">
+                                    <div class="staff-photo-wrap"><img src="https://randomuser.me/api/portraits/men/49.jpg" alt="Daniel Lee"></div>
+                                    <div class="staff-front-info">
+                                        <h3>Daniel Lee</h3>
+                                        <p class="sfi-role">Mock Test Coordinator</p>
+                                        <p class="sfi-dept">{% if lang == 'uz' %}O'qituvchi{% elif lang == 'ru' %}Преподаватель{% else %}Teacher{% endif %}</p>
+                                    </div>
+                                </div>
+                                <div class="staff-flip-back">
+                                    <div>
+                                        <h3>Daniel Lee</h3>
+                                        <p class="sfb-role">Mock Test Coordinator</p>
+                                        <p class="sfb-bio">{% if lang == 'uz' %}Doniyor Mock Tests dasturini boshqaradi va haqiqiy imtihon sharoitlarini ta'minlaydi. Uning batafsil tahlillari talabalar uchun eng kuchli tayyorgarlik vositasidir.{% elif lang == 'ru' %}Даниэль руководит программой Mock Tests и обеспечивает реальные условия экзамена. Его детальные разборы являются лучшим инструментом подготовки для студентов.{% else %}Daniel runs the Mock Tests programme and ensures authentic exam conditions. His detailed debriefs are the most powerful preparation tool for students.{% endif %}</p>
+                                    </div>
+                                    <div class="sfb-contact">
+                                        <a href="mailto:daniel@prestigeielts.com" onclick="event.stopPropagation()">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+                                            daniel@prestigeielts.com
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="staff-flip-item">
+                        <div class="staff-flip-card">
+                            <div class="staff-flip-inner">
+                                <div class="staff-flip-front">
+                                    <div class="staff-photo-wrap"><img src="https://randomuser.me/api/portraits/women/58.jpg" alt="Sophie Turner"></div>
+                                    <div class="staff-front-info">
+                                        <h3>Sophie Turner</h3>
+                                        <p class="sfi-role">Grammar &amp; Vocabulary</p>
+                                        <p class="sfi-dept">{% if lang == 'uz' %}O'qituvchi{% elif lang == 'ru' %}Преподаватель{% else %}Teacher{% endif %}</p>
+                                    </div>
+                                </div>
+                                <div class="staff-flip-back">
+                                    <div>
+                                        <h3>Sophie Turner</h3>
+                                        <p class="sfb-role">Grammar &amp; Vocabulary</p>
+                                        <p class="sfb-bio">{% if lang == 'uz' %}Sofi grammatika va lug'at boyitish bo'yicha mutaxassis. Uning noan'anaviy o'qitish usullari talabalarni tez va qiziqarli tarzda o'rgatadi. IELTS Lexical Resource mezonini yaxshilashda tengsiz.{% elif lang == 'ru' %}Софи — специалист по грамматике и расширению словарного запаса. Её нетрадиционные методы обучения быстро и интересно развивают студентов. Непревзойдённый эксперт по критерию Lexical Resource.{% else %}Sophie specialises in grammar and vocabulary. Her unconventional teaching methods develop students quickly and engagingly. She is unmatched at improving the IELTS Lexical Resource criterion.{% endif %}</p>
+                                    </div>
+                                    <div class="sfb-contact">
+                                        <a href="mailto:sophie@prestigeielts.com" onclick="event.stopPropagation()">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+                                            sophie@prestigeielts.com
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="staff-flip-item">
+                        <div class="staff-flip-card">
+                            <div class="staff-flip-inner">
+                                <div class="staff-flip-front">
+                                    <div class="staff-photo-wrap"><img src="https://randomuser.me/api/portraits/men/71.jpg" alt="William Chen"></div>
+                                    <div class="staff-front-info">
+                                        <h3>William Chen</h3>
+                                        <p class="sfi-role">IELTS Preparation</p>
+                                        <p class="sfi-dept">{% if lang == 'uz' %}O'qituvchi{% elif lang == 'ru' %}Преподаватель{% else %}Teacher{% endif %}</p>
+                                    </div>
+                                </div>
+                                <div class="staff-flip-back">
+                                    <div>
+                                        <h3>William Chen</h3>
+                                        <p class="sfb-role">IELTS Preparation</p>
+                                        <p class="sfb-bio">{% if lang == 'uz' %}Uilyam to'liq IELTS tayyorgarlik dasturini o'tkazadi. U barcha to'rtta bo'lim bo'yicha yaxlit strategiyani o'rgatadi. Uning 9 yillik tajribasi va yuqori muvaffaqiyat ko'rsatkichi uni eng yaxshi o'qituvchilardan biri qiladi.{% elif lang == 'ru' %}Уильям проводит полную программу подготовки к IELTS. Он обучает целостной стратегии по всем четырём модулям. 9 лет опыта и высокие показатели успеха делают его одним из лучших преподавателей.{% else %}William delivers a complete IELTS preparation programme, teaching a holistic strategy across all four modules. His 9 years of experience and high pass rates make him one of our best teachers.{% endif %}</p>
+                                    </div>
+                                    <div class="sfb-contact">
+                                        <a href="mailto:william@prestigeielts.com" onclick="event.stopPropagation()">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+                                            william@prestigeielts.com
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="staff-flip-item">
+                        <div class="staff-flip-card">
+                            <div class="staff-flip-inner">
+                                <div class="staff-flip-front">
+                                    <div class="staff-photo-wrap"><img src="https://randomuser.me/api/portraits/women/83.jpg" alt="Emma Wilson"></div>
+                                    <div class="staff-front-info">
+                                        <h3>Emma Wilson</h3>
+                                        <p class="sfi-role">Academic IELTS</p>
+                                        <p class="sfi-dept">{% if lang == 'uz' %}O'qituvchi{% elif lang == 'ru' %}Преподаватель{% else %}Teacher{% endif %}</p>
+                                    </div>
+                                </div>
+                                <div class="staff-flip-back">
+                                    <div>
+                                        <h3>Emma Wilson</h3>
+                                        <p class="sfb-role">Academic IELTS</p>
+                                        <p class="sfb-bio">{% if lang == 'uz' %}Emma Academic IELTS bo'yicha chuqur bilimga ega va 200 dan ortiq talabani xorijiy universitetlarga qabul qildirishda yordam berdi. Uning o'ziga xos o'qitish uslubi juda samarali.{% elif lang == 'ru' %}Эмма обладает глубокими знаниями по Academic IELTS и помогла 200+ студентам поступить в зарубежные университеты. Её уникальный стиль преподавания очень эффективен.{% else %}Emma has deep expertise in Academic IELTS and has helped 200+ students gain admission to overseas universities. Her distinctive teaching style is highly effective.{% endif %}</p>
+                                    </div>
+                                    <div class="sfb-contact">
+                                        <a href="mailto:emma@prestigeielts.com" onclick="event.stopPropagation()">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+                                            emma@prestigeielts.com
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="staff-flip-item">
+                        <div class="staff-flip-card">
+                            <div class="staff-flip-inner">
+                                <div class="staff-flip-front">
+                                    <div class="staff-photo-wrap"><img src="https://randomuser.me/api/portraits/men/85.jpg" alt="Christopher Brown"></div>
+                                    <div class="staff-front-info">
+                                        <h3>Christopher Brown</h3>
+                                        <p class="sfi-role">Business English</p>
+                                        <p class="sfi-dept">{% if lang == 'uz' %}O'qituvchi{% elif lang == 'ru' %}Преподаватель{% else %}Teacher{% endif %}</p>
+                                    </div>
+                                </div>
+                                <div class="staff-flip-back">
+                                    <div>
+                                        <h3>Christopher Brown</h3>
+                                        <p class="sfb-role">Business English</p>
+                                        <p class="sfb-bio">{% if lang == 'uz' %}Kristofer Business English va IELTS tayyorgarligini birlashtirgan kurs o'tkazadi. Biznes sohasida ishlash yoki chet elga ko'chishni rejalashtirgan talabalar uchun ideal. 5 yillik korporativ o'qitish tajribasiga ega.{% elif lang == 'ru' %}Кристофер ведёт курс, совмещающий Business English и подготовку к IELTS. Идеально для студентов, планирующих работать в бизнесе или эмигрировать. 5 лет корпоративного преподавания.{% else %}Christopher combines Business English with IELTS preparation, ideal for students planning to work abroad or in international business. He brings 5 years of corporate training experience.{% endif %}</p>
+                                    </div>
+                                    <div class="sfb-contact">
+                                        <a href="mailto:christopher@prestigeielts.com" onclick="event.stopPropagation()">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+                                            christopher@prestigeielts.com
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <div class="staff-card">
-                <img class="staff-avatar" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson">
-                <h3>Sarah Johnson</h3>
-                <p class="staff-role">Speaking & Writing</p>
-                <p class="staff-desc">{% if lang == 'uz' %}Cambridge sertifikatlangan o'qituvchi{% elif lang == 'ru' %}Сертифицированный преподаватель Cambridge{% else %}Cambridge certified teacher{% endif %}</p>
-            </div>
-            <div class="staff-card">
-                <img class="staff-avatar" src="https://randomuser.me/api/portraits/men/56.jpg" alt="Michael Brown">
-                <h3>Michael Brown</h3>
-                <p class="staff-role">Listening & Reading</p>
-                <p class="staff-desc">{% if lang == 'uz' %}IELTS 9.0 ball, 8 yillik tajriba{% elif lang == 'ru' %}IELTS 9.0 баллов, 8 лет опыта{% else %}IELTS 9.0 score, 8 years experience{% endif %}</p>
-            </div>
-            <div class="staff-card">
-                <img class="staff-avatar" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emily Davis">
-                <h3>Emily Davis</h3>
-                <p class="staff-role">Mock Tests & Academic</p>
-                <p class="staff-desc">{% if lang == 'uz' %}300+ talabani yuqori ball bilan tayyorlagan{% elif lang == 'ru' %}Подготовила 300+ студентов к высоким баллам{% else %}Prepared 300+ students for high scores{% endif %}</p>
-            </div>
+            <button class="staff-arrow staff-arrow-next" id="staffNext" aria-label="Next">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+        </div>
+
+        <div class="staff-dots" id="staffDots">
+            <button class="staff-dot staff-dot-active" data-index="0" aria-label="Go to 1"></button>
+            <button class="staff-dot" data-index="1" aria-label="Go to 2"></button>
+            <button class="staff-dot" data-index="2" aria-label="Go to 3"></button>
+            <button class="staff-dot" data-index="3" aria-label="Go to 4"></button>
+            <button class="staff-dot" data-index="4" aria-label="Go to 5"></button>
+            <button class="staff-dot" data-index="5" aria-label="Go to 6"></button>
+            <button class="staff-dot" data-index="6" aria-label="Go to 7"></button>
+            <button class="staff-dot" data-index="7" aria-label="Go to 8"></button>
+            <button class="staff-dot" data-index="8" aria-label="Go to 9"></button>
+            <button class="staff-dot" data-index="9" aria-label="Go to 10"></button>
+            <button class="staff-dot" data-index="10" aria-label="Go to 11"></button>
+            <button class="staff-dot" data-index="11" aria-label="Go to 12"></button>
+            <button class="staff-dot" data-index="12" aria-label="Go to 13"></button>
+            <button class="staff-dot" data-index="13" aria-label="Go to 14"></button>
+            <button class="staff-dot" data-index="14" aria-label="Go to 15"></button>
         </div>
     </section>
 
@@ -398,8 +856,8 @@
     </footer>
     <script>
         function toggleFaq(element) {
-            const answer = element.nextElementSibling;
-            const icon = element.querySelector('.faq-icon');
+            var answer = element.nextElementSibling;
+            var icon = element.querySelector('.faq-icon');
             if (answer.style.display === 'block') {
                 answer.style.display = 'none';
                 icon.textContent = '+';
@@ -408,6 +866,80 @@
                 icon.textContent = '−';
             }
         }
+
+        // Staff flip-card carousel with auto-play right-to-left
+        (function () {
+            var outer = document.querySelector('.staff-track-outer');
+            var track = document.getElementById('staffTrack');
+            var prevBtn = document.getElementById('staffPrev');
+            var nextBtn = document.getElementById('staffNext');
+            var dots = document.querySelectorAll('.staff-dot');
+            var items = track.querySelectorAll('.staff-flip-item');
+            var total = items.length;
+            var current = 0;
+            var autoTimer = null;
+
+            function cpv() {
+                return window.innerWidth < 600 ? 1 : window.innerWidth < 900 ? 2 : window.innerWidth < 1200 ? 3 : 5;
+            }
+            function maxIdx() { return total - cpv(); }
+
+            function setWidths() {
+                var w = (100 / cpv()) + '%';
+                for (var i = 0; i < items.length; i++) items[i].style.width = w;
+            }
+
+            function goTo(idx) {
+                if (idx > maxIdx()) idx = 0;
+                if (idx < 0) idx = maxIdx();
+                current = idx;
+                var cardPx = outer.offsetWidth / cpv();
+                track.style.transition = 'transform 500ms ease';
+                track.style.transform = 'translateX(' + (-current * cardPx) + 'px)';
+                dots.forEach(function (d, i) { d.classList.toggle('staff-dot-active', i === current); });
+                prevBtn.disabled = false;
+                nextBtn.disabled = false;
+            }
+
+            function startAuto() {
+                autoTimer = setInterval(function () { goTo(current + 1); }, 3500);
+            }
+            function stopAuto() {
+                clearInterval(autoTimer);
+            }
+
+            outer.addEventListener('mouseenter', stopAuto);
+            outer.addEventListener('mouseleave', startAuto);
+
+            prevBtn.addEventListener('click', function () { stopAuto(); goTo(current - 1); startAuto(); });
+            nextBtn.addEventListener('click', function () { stopAuto(); goTo(current + 1); startAuto(); });
+            dots.forEach(function (d) {
+                d.addEventListener('click', function () { stopAuto(); goTo(parseInt(this.getAttribute('data-index'))); startAuto(); });
+            });
+
+            window.addEventListener('resize', function () {
+                setWidths();
+                track.style.transition = 'none';
+                var cardPx = outer.offsetWidth / cpv();
+                current = Math.min(current, maxIdx());
+                track.style.transform = 'translateX(' + (-current * cardPx) + 'px)';
+            });
+
+            setWidths();
+            goTo(0);
+            startAuto();
+        })();
+        // Hamburger menu toggle
+        (function () {
+            var btn = document.getElementById('navHamburger');
+            var collapse = document.getElementById('navCollapse');
+            if (btn && collapse) {
+                btn.addEventListener('click', function () {
+                    collapse.classList.toggle('open');
+                    btn.classList.toggle('active');
+                });
+            }
+        })();
     </script>
 </body>
 </html>

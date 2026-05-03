@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #f5f0e8;
+  color: #1a1a1a;
+}
+
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.testimonials-track {
+  animation: scroll-left 35s linear infinite;
+  display: flex;
+  width: max-content;
+}
+.testimonials-track:hover { animation-play-state: paused; }
+
+.staff-scroll-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: scroll-left 40s linear infinite;
+  padding: 8px 0 16px;
+}
+.staff-scroll-track:hover { animation-play-state: paused; }
