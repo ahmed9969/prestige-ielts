@@ -244,13 +244,13 @@ nav {
 }
 
 .hero h1 {
-    font-size: 56px;
+    font-size: 46px;
     letter-spacing: 2px;
     margin-bottom: 20px;
 }
 
 .hero p {
-    font-size: 24px;
+    font-size: 20px;
     margin-bottom: 40px;
     color: #ccc;
 }
@@ -277,7 +277,7 @@ nav {
 }
 
 #courses h2 {
-    font-size: 42px;
+    font-size: 34px;
     margin-bottom: 50px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -422,7 +422,7 @@ nav {
 }
 
 #staff h2 {
-    font-size: 42px;
+    font-size: 34px;
     margin-bottom: 12px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -519,7 +519,7 @@ nav {
 }
 
 .staff-front-info h3 {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
     margin-bottom: 5px;
     color: #f5f0e8;
@@ -654,7 +654,7 @@ nav {
 }
 
 #contact h2 {
-    font-size: 42px;
+    font-size: 34px;
     margin-bottom: 50px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -721,7 +721,7 @@ footer {
 }
 
 .director-message h2 {
-    font-size: 42px;
+    font-size: 34px;
     margin-bottom: 25px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -753,7 +753,7 @@ footer {
 }
 
 #results h2 {
-    font-size: 42px;
+    font-size: 34px;
     margin-bottom: 50px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -789,7 +789,7 @@ footer {
 }
 
 .overall-score {
-    font-size: 60px;
+    font-size: 50px;
     font-weight: bold;
     color: #f5c518;
     line-height: 1;
@@ -832,7 +832,7 @@ footer {
 }
 
 #testimonials h2 {
-    font-size: 42px;
+    font-size: 34px;
     margin-bottom: 50px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -998,7 +998,7 @@ footer {
 }
 
 #map h2 {
-    font-size: 42px;
+    font-size: 34px;
     margin-bottom: 50px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -1038,7 +1038,7 @@ footer {
 }
 
 .stat-number {
-    font-size: 60px;
+    font-size: 50px;
     color: #f5c518;
     margin-bottom: 10px;
 }
@@ -1081,7 +1081,7 @@ footer {
 }
 
 #faq h2 {
-    font-size: 42px;
+    font-size: 34px;
     margin-bottom: 50px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -1383,5 +1383,72 @@ footer {
 
     #mock-form-section {
         padding: 40px 16px;
+    }
+}
+
+/* ── Mock Test section on homepage ── */
+#mock-register-home {
+    background: #1a1a1a;
+    padding: 80px 50px;
+}
+
+.mock-home-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.mock-home-text h2 {
+    font-size: 34px;
+    color: #f5f0e8;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.mock-home-text p {
+    font-size: 17px;
+    color: #aaa;
+    line-height: 1.8;
+    margin-bottom: 28px;
+}
+
+.mock-home-perks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mock-home-perks li {
+    font-size: 16px;
+    color: #ccc;
+}
+
+.mock-home-form {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 40px 36px;
+}
+
+.mock-home-form .form-group label {
+    color: #1a1a1a;
+}
+
+@media (max-width: 768px) {
+    #mock-register-home {
+        padding: 50px 20px;
+    }
+
+    .mock-home-inner {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .mock-home-form {
+        padding: 28px 20px;
     }
 }

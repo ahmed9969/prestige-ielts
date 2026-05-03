@@ -852,6 +852,47 @@
         </div>
     </section>
 
+    <!-- MOCK TEST REGISTRATION SECTION -->
+    <section id="mock-register-home">
+        <div class="mock-home-inner">
+            <div class="mock-home-text">
+                <h2>{% if lang == 'uz' %}Mock Test uchun ro'yxatdan o'ting{% elif lang == 'ru' %}Запишитесь на пробный тест{% else %}Register for a Mock Test{% endif %}</h2>
+                <p>{% if lang == 'uz' %}Haqiqiy IELTS sharoitida o'zingizni sinab ko'ring va batafsil fikr-mulohaza oling.{% elif lang == 'ru' %}Проверьте себя в реальных условиях IELTS и получите подробную обратную связь.{% else %}Test yourself under real IELTS conditions and get detailed personal feedback from our teachers.{% endif %}</p>
+                <ul class="mock-home-perks">
+                    <li>⏱ 2h 45min — {% if lang == 'uz' %}to'liq format{% elif lang == 'ru' %}полный формат{% else %}full exam format{% endif %}</li>
+                    <li>📝 {% if lang == 'uz' %}Shaxsiy fikr-mulohaza{% elif lang == 'ru' %}Персональная обратная связь{% else %}Personal feedback from your teacher{% endif %}</li>
+                    <li>📍 Chilanzar Ts-48</li>
+                </ul>
+            </div>
+            <form class="mock-home-form" method="POST" action="/mock-register{% if lang != 'en' %}?lang={{ lang }}{% endif %}">
+                <div class="form-group">
+                    <label>{% if lang == 'uz' %}To'liq ism *{% elif lang == 'ru' %}Полное имя *{% else %}Full Name *{% endif %}</label>
+                    <input type="text" name="name" required placeholder="{% if lang == 'uz' %}Ismingiz{% elif lang == 'ru' %}Ваше имя{% else %}Your full name{% endif %}">
+                </div>
+                <div class="form-group">
+                    <label>{% if lang == 'uz' %}Telefon *{% elif lang == 'ru' %}Телефон *{% else %}Phone Number *{% endif %}</label>
+                    <input type="tel" name="phone" required placeholder="+998 XX XXX XX XX">
+                </div>
+                <div class="form-group">
+                    <label>{% if lang == 'uz' %}Kurs turi{% elif lang == 'ru' %}Тип курса{% else %}Course Type{% endif %}</label>
+                    <select name="course_type">
+                        <option value="">{% if lang == 'uz' %}Tanlang{% elif lang == 'ru' %}Выберите{% else %}Select{% endif %}</option>
+                        <option value="General">IELTS General</option>
+                        <option value="Academic">IELTS Academic</option>
+                        <option value="Not sure">{% if lang == 'uz' %}Bilmayman{% elif lang == 'ru' %}Не знаю{% else %}Not sure yet{% endif %}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>{% if lang == 'uz' %}Qulay sana{% elif lang == 'ru' %}Удобная дата{% else %}Preferred Date{% endif %}</label>
+                    <input type="date" name="date_pref">
+                </div>
+                <button type="submit" class="form-submit-btn">
+                    {% if lang == 'uz' %}Yuborish{% elif lang == 'ru' %}Отправить{% else %}Submit{% endif %}
+                </button>
+            </form>
+        </div>
+    </section>
+
     <footer>
         <p>© 2024 Prestige IELTS Academy</p>
     </footer>
