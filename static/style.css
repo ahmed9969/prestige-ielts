@@ -1208,3 +1208,180 @@ footer {
     .nav-links { order: 3; width: 100%; flex-wrap: wrap; justify-content: center; }
     .nav-right { margin-left: auto; }
 }
+/* ── Mock Test Registration Form ── */
+#mock-form-section {
+    padding: 80px 24px;
+    background-color: #f5f0e8;
+    min-height: 60vh;
+}
+
+.mock-form-wrap {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.mock-form-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 48px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #1a1a1a;
+    font-family: 'Inter', sans-serif;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #e0dbd0;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    color: #1a1a1a;
+    background: #faf9f6;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #1a1a1a;
+    background: #fff;
+}
+
+.form-submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: #1a1a1a;
+    color: #f5f0e8;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.form-submit-btn:hover {
+    background: #333;
+    transform: translateY(-1px);
+}
+
+.form-error-banner {
+    background: #fde8e8;
+    color: #c0392b;
+    border: 1px solid #f5c6c6;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 15px;
+    margin-bottom: 24px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Info panel */
+.mock-form-info {
+    background: #1a1a1a;
+    color: #f5f0e8;
+    border-radius: 16px;
+    padding: 40px 32px;
+}
+
+.mock-form-info h3 {
+    font-size: 22px;
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.mock-form-info ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.mock-form-info ul li {
+    font-size: 17px;
+    color: #ccc;
+    line-height: 1.5;
+}
+
+/* Success state */
+.form-success-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+}
+
+.form-success-box {
+    background: #fff;
+    border-radius: 16px;
+    padding: 64px 48px;
+    text-align: center;
+    max-width: 480px;
+    width: 100%;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+.success-icon {
+    width: 72px;
+    height: 72px;
+    background: #1a1a1a;
+    color: #f5c518;
+    border-radius: 50%;
+    font-size: 36px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+}
+
+.form-success-box h2 {
+    font-size: 28px;
+    margin-bottom: 14px;
+}
+
+.form-success-box p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 32px;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .mock-form-wrap {
+        grid-template-columns: 1fr;
+    }
+
+    .mock-form-card {
+        padding: 28px 20px;
+    }
+
+    .mock-form-info {
+        padding: 28px 20px;
+    }
+
+    #mock-form-section {
+        padding: 40px 16px;
+    }
+}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if lang == 'uz' %}Mock Test Ro'yxatdan o'tish{% elif lang == 'ru' %}Запись на пробный тест{% else %}Register for Mock Test{% endif %} - Prestige IELTS Academy</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <a href="/" class="nav-logo-outer">
+            <img src="/static/logo.png" alt="Prestige IELTS Academy">
+        </a>
+        <div class="navbar-card">
+            <div class="nav-mobile-bar">
+                <img src="/static/logo.png" alt="Prestige IELTS Academy" class="logo-mobile">
+                <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="nav-collapse" id="navCollapse">
+                <div class="nav-links">
+                    <a href="/">{% if lang == 'uz' %}Bosh sahifa{% elif lang == 'ru' %}Главная{% else %}Home{% endif %}</a>
+                    <a href="/#courses">{% if lang == 'uz' %}Kurslar{% elif lang == 'ru' %}Курсы{% else %}Courses{% endif %}</a>
+                    <a href="/#contact">{% if lang == 'uz' %}Aloqa{% elif lang == 'ru' %}Контакты{% else %}Contact{% endif %}</a>
+                    <a href="/vacancies">{% if lang == 'uz' %}Vakansiyalar{% elif lang == 'ru' %}Вакансии{% else %}Vacancies{% endif %}</a>
+                </div>
+                <div class="lang-switcher">
+                    <a href="?lang=en">🇬🇧 EN</a>
+                    <a href="?lang=uz">🇺🇿 UZ</a>
+                    <a href="?lang=ru">🇷🇺 RU</a>
+                </div>
+            </div>
+        </div>
+        <a href="/#contact" class="nav-cta">
+            {% if lang == 'uz' %}Ro'yxatdan o'tish{% elif lang == 'ru' %}Записаться{% else %}Enroll Now{% endif %}
+        </a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>{% if lang == 'uz' %}Mock Test uchun ro'yxatdan o'ting{% elif lang == 'ru' %}Запись на пробный тест{% else %}Register for Mock Test{% endif %}</h1>
+        <p>{% if lang == 'uz' %}Haqiqiy IELTS imtihoni sharoitida o'zingizni sinab ko'ring{% elif lang == 'ru' %}Проверьте себя в условиях реального экзамена IELTS{% else %}Test yourself under real IELTS exam conditions{% endif %}</p>
+    </section>
+
+    <!-- FORM SECTION -->
+    <section id="mock-form-section">
+
+        {% if success %}
+        <!-- SUCCESS STATE -->
+        <div class="form-success-wrap">
+            <div class="form-success-box">
+                <div class="success-icon">✓</div>
+                <h2>{% if lang == 'uz' %}Muvaffaqiyatli yuborildi!{% elif lang == 'ru' %}Заявка отправлена!{% else %}Registration Received!{% endif %}</h2>
+                <p>{% if lang == 'uz' %}Biz siz bilan tez orada bog'lanamiz.{% elif lang == 'ru' %}Мы свяжемся с вами в ближайшее время.{% else %}We will be in touch with you shortly to confirm your mock test slot.{% endif %}</p>
+                <a href="/" class="btn">{% if lang == 'uz' %}Bosh sahifaga qaytish{% elif lang == 'ru' %}На главную{% else %}Back to Home{% endif %}</a>
+            </div>
+        </div>
+
+        {% else %}
+        <!-- FORM -->
+        <div class="mock-form-wrap">
+            <div class="mock-form-card">
+
+                {% if error %}
+                <div class="form-error-banner">
+                    {% if lang == 'uz' %}Ism va telefon raqamini kiriting{% elif lang == 'ru' %}Пожалуйста, заполните имя и телефон{% else %}Please fill in your name and phone number{% endif %}
+                </div>
+                {% endif %}
+
+                <form method="POST" action="/mock-register{% if lang != 'en' %}?lang={{ lang }}{% endif %}">
+
+                    <div class="form-group">
+                        <label>{% if lang == 'uz' %}To'liq ism *{% elif lang == 'ru' %}Полное имя *{% else %}Full Name *{% endif %}</label>
+                        <input type="text" name="name" required placeholder="{% if lang == 'uz' %}Ismingiz{% elif lang == 'ru' %}Ваше имя{% else %}Your full name{% endif %}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>{% if lang == 'uz' %}Telefon raqam *{% elif lang == 'ru' %}Номер телефона *{% else %}Phone Number *{% endif %}</label>
+                        <input type="tel" name="phone" required placeholder="+998 XX XXX XX XX">
+                    </div>
+
+                    <div class="form-group">
+                        <label>{% if lang == 'uz' %}Email{% elif lang == 'ru' %}Email{% else %}Email{% endif %}</label>
+                        <input type="email" name="email" placeholder="{% if lang == 'uz' %}Email manzilingiz{% elif lang == 'ru' %}Ваш email{% else %}your@email.com{% endif %}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>{% if lang == 'uz' %}Kurs turi{% elif lang == 'ru' %}Тип курса{% else %}Course Type{% endif %}</label>
+                        <select name="course_type">
+                            <option value="">{% if lang == 'uz' %}Tanlang{% elif lang == 'ru' %}Выберите{% else %}Select{% endif %}</option>
+                            <option value="General">IELTS General</option>
+                            <option value="Academic">IELTS Academic</option>
+                            <option value="Not sure">{% if lang == 'uz' %}Bilmayman{% elif lang == 'ru' %}Не знаю{% else %}Not sure yet{% endif %}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>{% if lang == 'uz' %}Maqsad ball{% elif lang == 'ru' %}Целевой балл{% else %}Target Band Score{% endif %}</label>
+                        <select name="target">
+                            <option value="">{% if lang == 'uz' %}Tanlang{% elif lang == 'ru' %}Выберите{% else %}Select{% endif %}</option>
+                            <option value="5.0–5.5">5.0 – 5.5</option>
+                            <option value="6.0–6.5">6.0 – 6.5</option>
+                            <option value="7.0–7.5">7.0 – 7.5</option>
+                            <option value="8.0+">8.0+</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>{% if lang == 'uz' %}Qulay sana{% elif lang == 'ru' %}Удобная дата{% else %}Preferred Date{% endif %}</label>
+                        <input type="date" name="date_pref">
+                    </div>
+
+                    <button type="submit" class="form-submit-btn">
+                        {% if lang == 'uz' %}Yuborish{% elif lang == 'ru' %}Отправить{% else %}Submit Registration{% endif %}
+                    </button>
+
+                </form>
+            </div>
+
+            <div class="mock-form-info">
+                <h3>{% if lang == 'uz' %}Mock Test haqida{% elif lang == 'ru' %}О пробном тесте{% else %}About the Mock Test{% endif %}</h3>
+                <ul>
+                    <li>⏱ {% if lang == 'uz' %}2 soat 45 daqiqa{% elif lang == 'ru' %}2 часа 45 минут{% else %}2 hours 45 minutes{% endif %}</li>
+                    <li>📋 {% if lang == 'uz' %}To'liq IELTS formati{% elif lang == 'ru' %}Полный формат IELTS{% else %}Full IELTS format{% endif %}</li>
+                    <li>📝 {% if lang == 'uz' %}Batafsil fikr-mulohaza{% elif lang == 'ru' %}Подробная обратная связь{% else %}Detailed feedback after{% endif %}</li>
+                    <li>📍 {% if lang == 'uz' %}Chilanzar Ts-48{% elif lang == 'ru' %}Чиланзар Тс-48{% else %}Chilanzar Ts-48{% endif %}</li>
+                    <li>📞 555 15 99 00</li>
+                </ul>
+                <a href="https://t.me/Prestige_IELTSAcademy" target="_blank" class="btn" style="margin-top:24px; display:inline-block;">💬 {% if lang == 'uz' %}Telegram orqali bog'laning{% elif lang == 'ru' %}Написать в Telegram{% else %}Contact via Telegram{% endif %}</a>
+            </div>
+        </div>
+        {% endif %}
+
+    </section>
+
+    <footer>
+        <p>© 2024 Prestige IELTS Academy</p>
+    </footer>
+
+    <script>
+        (function () {
+            var btn = document.getElementById('navHamburger');
+            var collapse = document.getElementById('navCollapse');
+            if (btn && collapse) {
+                btn.addEventListener('click', function () {
+                    collapse.classList.toggle('open');
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
