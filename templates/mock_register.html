@@ -95,16 +95,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label>{% if lang == 'uz' %}Kurs turi{% elif lang == 'ru' %}Тип курса{% else %}Course Type{% endif %}</label>
-                        <select name="course_type">
-                            <option value="">{% if lang == 'uz' %}Tanlang{% elif lang == 'ru' %}Выберите{% else %}Select{% endif %}</option>
-                            <option value="General">IELTS General</option>
-                            <option value="Academic">IELTS Academic</option>
-                            <option value="Not sure">{% if lang == 'uz' %}Bilmayman{% elif lang == 'ru' %}Не знаю{% else %}Not sure yet{% endif %}</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
                         <label>{% if lang == 'uz' %}Maqsad ball{% elif lang == 'ru' %}Целевой балл{% else %}Target Band Score{% endif %}</label>
                         <select name="target">
                             <option value="">{% if lang == 'uz' %}Tanlang{% elif lang == 'ru' %}Выберите{% else %}Select{% endif %}</option>
